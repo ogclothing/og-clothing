@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+
+  <title>OG Clothing — Own Your Presence</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+      color: #f5f2ea;
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ANNOUNCEMENT */
+
+    .announcement {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eee9df;
+      color: #090909;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      height: 82px;
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      top: 36px;
+      width: 100%;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      opacity: .65;
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .bag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100svh;
+      padding: 160px 7% 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 70% 40%, rgba(105,105,105,.15), transparent 30%),
+        linear-gradient(135deg, #020202 0%, #080808 50%, #020202 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(255,255,255,.05);
+      border-radius: 50%;
+      right: -180px;
+      top: 25%;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: #9d998f;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(58px, 11vw, 150px);
+      line-height: .82;
+      letter-spacing: -6px;
+      max-width: 1100px;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-weight: 500;
+      color: #aaa69c;
+    }
+
+    .hero-bottom {
+      margin-top: 55px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      max-width: 430px;
+      color: #8c8982;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 17px 27px;
+      background: #eee9df;
+      color: #050505;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: .3s;
+    }
+
+    .button:hover {
+      background: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* STATEMENT */
+
+    .statement {
+      padding: 130px 7%;
+      border-top: 1px solid #171717;
+      border-bottom: 1px solid #171717;
+    }
+
+    .statement-small {
+      color: #69665f;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .statement h2 {
+      max-width: 1050px;
+      font-size: clamp(37px, 6vw, 82px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      font-weight: 500;
+    }
+
+    .statement h2 em {
+      font-family: "Cormorant Garamond", serif;
+      color: #858179;
+      font-weight: 500;
+    }
+
+    /* COLLECTIONS */
+
+    .collections {
+      padding: 120px 6%;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 55px;
+    }
+
+    .section-number {
+      font-size: 10px;
+      color: #65625c;
+      letter-spacing: 3px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 5vw, 65px);
+      letter-spacing: -2px;
+      font-weight: 600;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .collection {
+      height: 560px;
+      position: relative;
+      overflow: hidden;
+      background: #0c0c0c;
+      border: 1px solid #171717;
+    }
+
+    .collection-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform .7s ease;
+    }
+
+    .collection:nth-child(1) .collection-bg {
+      background:
+        radial-gradient(circle at center, #282828 0%, #111 45%, #070707 80%);
+    }
+
+    .collection:nth-child(2) .collection-bg {
+      background:
+        radial-gradient(circle at 60% 35%, #252525 0%, #101010 48%, #050505 80%);
+    }
+
+    .collection:nth-child(3) .collection-bg {
+      background:
+        radial-gradient(circle at 35% 50%, #222 0%, #0e0e0e 45%, #050505 80%);
+    }
+
+    .collection:nth-child(4) .collection-bg {
+      background:
+        radial-gradient(circle at center, #292929 0%, #111 45%, #050505 80%);
+    }
+
+    .collection:hover .collection-bg {
+      transform: scale(1.05);
+    }
+
+    .ghost-word {
+      position: absolute;
+      font-size: clamp(75px, 11vw, 160px);
+      font-weight: 800;
+      letter-spacing: -8px;
+      color: rgba(255,255,255,.025);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      white-space: nowrap;
+    }
+
+    .collection-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 35px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      background: linear-gradient(transparent, rgba(0,0,0,.8));
+    }
+
+    .collection-info span {
+      font-size: 9px;
+      color: #6d6961;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .collection-info h3 {
+      margin-top: 8px;
+      font-size: 27px;
+      font-weight: 500;
+    }
+
+    .arrow {
+      font-size: 24px;
+      color: #77736b;
+    }
+
+    /* MANIFESTO */
+
+    .manifesto {
+      min-height: 650px;
+      padding: 120px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background:
+        radial-gradient(circle at center, #161616 0%, #080808 45%, #030303 75%);
+    }
+
+    .manifesto-inner {
+      max-width: 850px;
+    }
+
+    .manifesto .small {
+      font-size: 9px;
+      letter-spacing: 5px;
+      color: #706c64;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .manifesto h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(50px, 8vw, 105px);
+      font-weight: 500;
+      line-height: .95;
+    }
+
+    .manifesto p {
+      max-width: 540px;
+      margin: 35px auto 0;
+      font-size: 12px;
+      color: #79766f;
+      line-height: 2;
+      letter-spacing: .5px;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      padding: 120px 6%;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .product-card {
+      cursor: pointer;
+    }
+
+    .product-image {
+      height: 480px;
+      background:
+        radial-gradient(circle at 50% 45%, #252525 0%, #101010 50%, #090909 75%);
+      border: 1px solid #191919;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image::after {
+      content: "OG";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 130px;
+      color: rgba(255,255,255,.035);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 2;
+      color: #aaa69d;
+    }
+
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 3px;
+      font-size: 12px;
+    }
+
+    .product-info p {
+      color: #77736c;
+      margin-top: 5px;
+      font-size: 10px;
+    }
+
+    .price {
+      color: #aaa69d;
+    }
+
+    /* QUOTE */
+
+    .quote {
+      padding: 150px 7%;
+      text-align: center;
+      border-top: 1px solid #171717;
+    }
+
+    .quote p {
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #5f5c56;
+      margin-bottom: 35px;
+    }
+
+    .quote h2 {
+      font-size: clamp(45px, 7vw, 95px);
+      line-height: 1;
+      letter-spacing: -3px;
+      font-weight: 500;
+    }
+
+    .quote h2 em {
+      font-family: "Cormorant Garamond", serif;
+      color: #77736c;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter {
+      padding: 100px 7%;
+      border-top: 1px solid #171717;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .newsletter h3 {
+      font-size: clamp(35px, 5vw, 65px);
+      letter-spacing: -2px;
+      font-weight: 500;
+    }
+
+    .newsletter p {
+      margin-top: 15px;
+      color: #74716a;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .email-box {
+      display: flex;
+      border-bottom: 1px solid #55524c;
+      padding-bottom: 14px;
+    }
+
+    .email-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      font-family: inherit;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .email-box button {
+      border: none;
+      background: transparent;
+      color: #eee9df;
+      font-size: 10px;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 70px 7% 35px;
+      border-top: 1px solid #171717;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .footer-logo {
+      font-size: clamp(40px, 7vw, 100px);
+      font-weight: 800;
+      letter-spacing: -5px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 70px;
+    }
+
+    .footer-column p {
+      font-size: 9px;
+      color: #5d5a54;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      font-size: 11px;
+      margin: 12px 0;
+      color: #99958d;
+    }
+
+    .copyright {
+      border-top: 1px solid #171717;
+      margin-top: 70px;
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      color: #4e4b46;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        height: 70px;
+        padding: 0 5%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .logo {
+        font-size: 17px;
+        letter-spacing: 4px;
+      }
+
+      .hero {
+        min-height: 92svh;
+        padding: 145px 6% 65px;
+      }
+
+      .hero h1 {
+        font-size: clamp(55px, 18vw, 88px);
+        letter-spacing: -4px;
+        line-height: .87;
+      }
+
+      .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 45px;
+      }
+
+      .hero-copy {
+        max-width: 330px;
+      }
+
+      .statement {
+        padding: 95px 6%;
+      }
+
+      .statement h2 {
+        letter-spacing: -1.5px;
+      }
+
+      .collections {
+        padding: 90px 4%;
+      }
+
+      .section-head {
+        margin-bottom: 35px;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collection {
+        height: 430px;
+      }
+
+      .collection-info {
+        padding: 25px;
+      }
+
+      .ghost-word {
+        font-size: 80px;
+        letter-spacing: -5px;
+      }
+
+      .manifesto {
+        min-height: 570px;
+        padding: 90px 7%;
+      }
+
+      .products {
+        padding: 90px 4%;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .product-image {
+        height: 460px;
+      }
+
+      .quote {
+        padding: 110px 6%;
+      }
+
+      .newsletter {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 90px 6%;
+      }
+
+      .footer-main {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        gap: 45px;
+        flex-wrap: wrap;
+      }
+
+      .copyright {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    Worldwide Shipping — The New Era Begins
+  </div>
+
+  <nav>
+    <a class="logo" href="#">OG CLOTHING</a>
+
+    <div class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">Our World</a>
+    </div>
+
+    <a class="bag" href="#shop">Bag (0)</a>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="eyebrow">Established for those who lead</div>
+
+    <h1>
+      OWN YOUR
+      <span>PRESENCE.</span>
+    </h1>
+
+    <div class="hero-bottom">
+
+      <p class="hero-copy">
+        Clothing is more than fabric. It is presence, discipline and identity.
+        OG Clothing is created for those who move in silence and never need
+        permission to stand above the rest.
+      </p>
+
+      <a href="#shop" class="button">Enter Collection</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- STATEMENT -->
+
+  <section class="statement" id="about">
+
+    <div class="statement-small">OG / Philosophy 001</div>
+
+    <h2>
+      We don't follow attention.
+      <em>We create presence.</em>
+      Built for those who understand that real power never needs to announce itself.
+    </h2>
+
+  </section>
+
+
+  <!-- COLLECTIONS -->
+
+  <section class="collections" id="collections">
+
+    <div class="section-head">
+      <div>
+        <div class="section-number">01 / Collections</div>
+        <h2>Choose your uniform.</h2>
+      </div>
+    </div>
+
+
+    <div class="collection-grid">
+
+      <a class="collection" href="#shop">
+        <div class="collection-bg"></div>
+        <div class="ghost-word">JOGGER</div>
+
+        <div class="collection-info">
+          <div>
+            <span>01</span>
+            <h3>Joggers</h3>
+          </div>
+          <div class="arrow">↗</div>
+        </div>
+      </a>
+
+
+      <a class="collection" href="#shop">
+        <div class="collection-bg"></div>
+        <div class="ghost-word">ZIPPER</div>
+
+        <div class="collection-info">
+          <div>
+            <span>02</span>
+            <h3>Zippers</h3>
+          </div>
+          <div class="arrow">↗</div>
+        </div>
+      </a>
+
+
+      <a class="collection" href="#shop">
+        <div class="collection-bg"></div>
+        <div class="ghost-word">BEANIE</div>
+
+        <div class="collection-info">
+          <div>
+            <span>03</span>
+            <h3>Beanies</h3>
+          </div>
+          <div class="arrow">↗</div>
+        </div>
+      </a>
+
+
+      <a class="collection" href="#shop">
+        <div class="collection-bg"></div>
+        <div class="ghost-word">CAP</div>
+
+        <div class="collection-info">
+          <div>
+            <span>04</span>
+            <h3>Caps</h3>
+          </div>
+          <div class="arrow">↗</div>
+        </div>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- MANIFESTO -->
+
+  <section class="manifesto">
+
+    <div class="manifesto-inner">
+
+      <div class="small">The OG Code</div>
+
+      <h2>Move in silence.</h2>
+
+      <p>
+        No noise. No approval. No explanation.
+        What you wear should speak before you ever have to.
+        Designed for ambition, control and undeniable presence.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+
+  <section class="products" id="shop">
+
+    <div class="section-head">
+      <div>
+        <div class="section-number">02 / Selected Pieces</div>
+        <h2>The Collection.</h2>
+      </div>
+    </div>
+
+
+    <div class="product-grid">
+
+      <div class="product-card">
+
+        <div class="product-image">
+          <span class="product-tag">Signature Piece</span>
+        </div>
+
+        <div class="product-info">
+          <div>
+            <strong>Diamond Hoodie</strong>
+            <p>Black / Signature</p>
+          </div>
+
+          <div class="price">€—</div>
+        </div>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="product-image">
+          <span class="product-tag">Essential</span>
+        </div>
+
+        <div class="product-info">
+          <div>
+            <strong>Heart Zipper</strong>
+            <p>Black / OG</p>
+          </div>
+
+          <div class="price">€—</div>
+        </div>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="product-image">
+          <span class="product-tag">Core Collection</span>
+        </div>
+
+        <div class="product-info">
+          <div>
+            <strong>Basic Zipper</strong>
+            <p>Black / Essential</p>
+          </div>
+
+          <div class="price">€—</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUOTE -->
+
+  <section class="quote">
+
+    <p>OG Clothing / Since Day One</p>
+
+    <h2>
+      SILENCE ISN'T WEAKNESS.<br>
+      <em>IT'S CONTROL.</em>
+    </h2>
+
+  </section>
+
+
+  <!-- NEWSLETTER -->
+
+  <section class="newsletter">
+
+    <div>
+      <h3>Enter the inner circle.</h3>
+
+      <p>
+        Private releases. Early access. Limited drops.<br>
+        No spam. Only what matters.
+      </p>
+    </div>
+
+
+    <div class="email-box">
+      <input type="email" placeholder="YOUR EMAIL ADDRESS">
+      <button>JOIN →</button>
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-main">
+
+      <div class="footer-logo">OG.</div>
+
+
+      <div class="footer-links">
+
+        <div class="footer-column">
+          <p>Explore</p>
+          <a href="#shop">Shop</a>
+          <a href="#collections">Collections</a>
+          <a href="#about">Our World</a>
+        </div>
+
+
+        <div class="footer-column">
+          <p>Information</p>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+          <a href="#">Contact</a>
+        </div>
+
+
+        <div class="footer-column">
+          <p>Social</p>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      <span>© 2026 OG Clothing</span>
+      <span>Power needs no introduction.</span>
+    </div>
+
+  </footer>
+
+</body>
+</html>
